@@ -50,7 +50,7 @@ class User extends Authenticatable
     public function adminlte_image()
     {
         /* return 'https://picsum.photos/300/300'; */
-        return 'https://pbs.twimg.com/profile_images/1467668510893559812/dOiA_l1Z_400x400.jpg';
+        return 'https://lh3.googleusercontent.com/ogw/ADea4I7omsSrsBxku7KTRLL-mnVVqvvz_hf73JI5k-iKAA=s32-c-mo';
     }
 
     public function adminlte_desc()

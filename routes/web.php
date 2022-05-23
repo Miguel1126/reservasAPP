@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\EspecialidadController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PrestamoController;
 
 /*
@@ -78,6 +79,8 @@ Route::post('/equipos/save',[EquipoController::class,'store']);
 Route::put('/equipos/update',[EquipoController::class,'update']);
 
 Route::post('/equipos/delete',[EquipoController::class,'destroy']);
+
+Route::get('/equipos/pdf', [PDFController::class, 'equiposPDF']);
 
 /**
  * Rutas para especialidades
