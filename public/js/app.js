@@ -7485,6 +7485,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ListadoReservas",
   data: function data() {
@@ -34948,6 +35017,133 @@ var render = function () {
             _c("v-progress-circular", {
               attrs: { indeterminate: "", size: "80", color: "grey darken-4" },
             }),
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "v-row",
+          { attrs: { justify: "space-around" } },
+          [
+            _c(
+              "v-col",
+              { attrs: { cols: "auto" } },
+              [
+                _c("v-dialog", {
+                  attrs: {
+                    transition: "dialog-bottom-transition",
+                    "max-width": "600",
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "activator",
+                      fn: function (ref) {
+                        var on = ref.on
+                        var attrs = ref.attrs
+                        return [
+                          _c(
+                            "v-btn",
+                            _vm._g(
+                              _vm._b(
+                                { attrs: { color: "primary" } },
+                                "v-btn",
+                                attrs,
+                                false
+                              ),
+                              on
+                            ),
+                            [_vm._v("PDF")]
+                          ),
+                        ]
+                      },
+                    },
+                    {
+                      key: "default",
+                      fn: function (dialog) {
+                        return [
+                          _c(
+                            "v-card",
+                            [
+                              _c(
+                                "v-toolbar",
+                                { attrs: { color: "primary", dark: "" } },
+                                [_vm._v("Opening from the bottom")]
+                              ),
+                              _vm._v(" "),
+                              _c("v-card-text", [
+                                _c("div", { staticClass: "text-h2 pa-12" }, [
+                                  _vm._v("Hello world!"),
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { attrs: { id: "app" } },
+                                  [
+                                    _c("date-picker", {
+                                      attrs: {
+                                        lang: "en",
+                                        type: "datetime",
+                                        format: "[on] yyyy-mm-dd [at] HH:MM a",
+                                      },
+                                      model: {
+                                        value: _vm.date,
+                                        callback: function ($$v) {
+                                          _vm.date = $$v
+                                        },
+                                        expression: "date",
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("div", { attrs: { id: "pdf" } }),
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "v-card-actions",
+                                { staticClass: "justify-end" },
+                                [
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { text: "" },
+                                      on: {
+                                        click: function ($event) {
+                                          dialog.value = false
+                                        },
+                                      },
+                                    },
+                                    [_vm._v("Close")]
+                                  ),
+                                ],
+                                1
+                              ),
+                            ],
+                            1
+                          ),
+                        ]
+                      },
+                    },
+                  ]),
+                }),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "v-col",
+              { attrs: { cols: "auto" } },
+              [
+                _c("v-dialog", {
+                  attrs: {
+                    transition: "dialog-top-transition",
+                    "max-width": "600",
+                  },
+                }),
+              ],
+              1
+            ),
           ],
           1
         ),

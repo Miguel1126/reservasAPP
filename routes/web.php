@@ -6,6 +6,7 @@ use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\EspecialidadController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PDFPrestamoController;
 use App\Http\Controllers\PrestamoController;
 
 /*
@@ -52,6 +53,7 @@ Route::post('/prestamos/save',[PrestamoController::class,'store']);
 
 Route::put('/prestamos/change',[PrestamoController::class,'changeState']);
 
+Route::get('/prestamos/pdf',[PDFPrestamoController::class,'prestamosPDF']);
 /**
  * Rutas para marcas
  */
