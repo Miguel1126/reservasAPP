@@ -26,12 +26,19 @@
             <v-card-text>
               <div class="text-h2 pa-12">Hello world!</div>
               <div id="app">
-                <date-picker v-model="date" lang="en" type="datetime" format="[on] yyyy-mm-dd [at] HH:MM a"></date-picker>
+                <p>{{ dates }}</p>
+                <v-date-picker v-model="dates" range></v-date-picker>
               </div>
-              <div id="pdf">
+               <div>
+                
+  
               </div>
             </v-card-text>
             <v-card-actions class="justify-end">
+              <v-btn
+                text
+                @click="generarpdf"
+              >Generar PDF</v-btn>
               <v-btn
                 text
                 @click="dialog.value = false"
@@ -158,28 +165,6 @@
   </div>
 </template>
 <script>
-import DatePicker from 'vue2-datepicker'
-
-  export default {
-   name: 'App',
-    components: {
-      DatePicker
-    },
-    data(){
-      return {
-        date: '',
-        time: '',
-        timePickerOptions: {
-          start: '00:00',
-          step: '00:30',
-          end: '23:30'
-        },
-        datetime: ''
-      }
-    }
-  }
-</script>
-<script>
 export default {
   name: "ListadoReservas",
   data: () => ({
@@ -194,6 +179,7 @@ export default {
       
       { text: "Acciones", value: "action", sortable: false, align: "center" }
     ],
+    dates: [],
     loader: false,
     search: "",
     estado:"R",
@@ -239,8 +225,20 @@ export default {
         me.fetchPrestamos(me.estado);
       },
   },
-  computed: {},
+  computed: {
+    dateRangeText () {
+        return this.dates.join(' ~ ')
+      },
+  },
   methods: {
+    generarpdf(e){
+      let fechas = this.dates;
+      e.preventDefault()
+      if (fechas.length === 0 || fechas.length === 1) alert('Debes seleccionar 2 fechas')
+      else if (fechas.length === 2) {
+        location.replace(`/prestamos/pdf?fecha1=${fechas[0]}&fecha2=${fechas[1]}`)
+      }
+    },
     fetchPrestamos(estado) {
       let me = this, state = estado;
       me.loader = true;

@@ -53,7 +53,8 @@ Route::post('/prestamos/save',[PrestamoController::class,'store']);
 
 Route::put('/prestamos/change',[PrestamoController::class,'changeState']);
 
-Route::get('/prestamos/pdf',[PDFPrestamoController::class,'prestamosPDF']);
+Route::get('/prestamos/pdf',[PDFController::class,'prestamosPDF']);
+
 /**
  * Rutas para marcas
  */

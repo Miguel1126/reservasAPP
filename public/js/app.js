@@ -7539,21 +7539,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ListadoReservas",
   data: function data() {
@@ -7583,6 +7568,7 @@ __webpack_require__.r(__webpack_exports__);
         sortable: false,
         align: "center"
       }],
+      dates: [],
       loader: false,
       search: "",
       estado: "R",
@@ -7635,8 +7621,19 @@ __webpack_require__.r(__webpack_exports__);
       me.fetchPrestamos(me.estado);
     }
   },
-  computed: {},
+  computed: {
+    dateRangeText: function dateRangeText() {
+      return this.dates.join(' ~ ');
+    }
+  },
   methods: {
+    generarpdf: function generarpdf(e) {
+      var fechas = this.dates;
+      e.preventDefault();
+      if (fechas.length === 0 || fechas.length === 1) alert('Debes seleccionar 2 fechas');else if (fechas.length === 2) {
+        location.replace("/prestamos/pdf?fecha1=".concat(fechas[0], "&fecha2=").concat(fechas[1]));
+      }
+    },
     fetchPrestamos: function fetchPrestamos(estado) {
       var me = this,
           state = estado;
@@ -35079,31 +35076,38 @@ var render = function () {
                                   "div",
                                   { attrs: { id: "app" } },
                                   [
-                                    _c("date-picker", {
-                                      attrs: {
-                                        lang: "en",
-                                        type: "datetime",
-                                        format: "[on] yyyy-mm-dd [at] HH:MM a",
-                                      },
+                                    _c("p", [_vm._v(_vm._s(_vm.dates))]),
+                                    _vm._v(" "),
+                                    _c("v-date-picker", {
+                                      attrs: { range: "" },
                                       model: {
-                                        value: _vm.date,
+                                        value: _vm.dates,
                                         callback: function ($$v) {
-                                          _vm.date = $$v
+                                          _vm.dates = $$v
                                         },
-                                        expression: "date",
+                                        expression: "dates",
                                       },
                                     }),
                                   ],
                                   1
                                 ),
                                 _vm._v(" "),
-                                _c("div", { attrs: { id: "pdf" } }),
+                                _c("div"),
                               ]),
                               _vm._v(" "),
                               _c(
                                 "v-card-actions",
                                 { staticClass: "justify-end" },
                                 [
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: { text: "" },
+                                      on: { click: _vm.generarpdf },
+                                    },
+                                    [_vm._v("Generar PDF")]
+                                  ),
+                                  _vm._v(" "),
                                   _c(
                                     "v-btn",
                                     {
