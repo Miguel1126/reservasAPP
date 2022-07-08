@@ -2,16 +2,17 @@
 
 Web application focused on the reservation of computer equipment. Created with Laravel 9 and Vue 2.
 
+
 ## Installation
 
 Install npm dependencies
 
-````bash
+```bash
   npm install
 ```
 Install composer dependencies
 
-````bash
+```bash
   composer install
 ```
 
@@ -21,25 +22,25 @@ Use the ``.env-example `` file to create the `.env` file and make the connection
 
 ### Run the migrations
 
-````bash
+```bash
   php artisan migrate
 ```
 
 ### Generate the key
 
-````bash
+```bash
   php artisan key:generate
 ```
 
 ### Compile js and css files
 
-````bash
+```bash
   npm run dev || npm run watch
 ```
 
 ### Run the server and everything should be working
 
-````bash
+```bash
   php artisan serve
 ```
 
