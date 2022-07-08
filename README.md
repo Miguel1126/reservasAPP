@@ -46,5 +46,3 @@ Use the ``.env-example `` file to create the `.env` file and make the connection
 ## License
 Done by Miguel Ardon 2022.
 [Laravel MIT license](https://opensource.org/licenses/MIT).
-
-Translated with www.DeepL.com/Translator (free version)
